@@ -1,3 +1,302 @@
+import { ImageResponse } from 'next/og';
+
+export const runtime = 'edge';
+
+const logos = {
+  // Koncepcja 1: MINIMAL SHINE - Elegancja z połyskiem
+  minimal: (
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)',
+      }}
+    >
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {/* Litery GVMS z połyskiem */}
+        <div
+          style={{
+            fontSize: 120,
+            fontWeight: 900,
+            letterSpacing: 15,
+            background: 'linear-gradient(135deg, #ffffff 0%, #a8a8a8 50%, #ffffff 100%)',
+            backgroundClip: 'text',
+            color: 'transparent',
+            display: 'flex',
+          }}
+        >
+          GVMS
+        </div>
+        {/* Subline */}
+        <div
+          style={{
+            fontSize: 20,
+            letterSpacing: 8,
+            color: '#999',
+            marginTop: 20,
+            fontWeight: 300,
+          }}
+        >
+          PREMIUM DETAILING
+        </div>
+        {/* Linia akcentująca */}
+        <div
+          style={{
+            width: 200,
+            height: 2,
+            background: 'linear-gradient(90deg, transparent, #fff, transparent)',
+            marginTop: 20,
+          }}
+        />
+      </div>
+    </div>
+  ),
+
+  // Koncepcja 2: SHIELD PROTECTION - Tarcza ochronna
+  shield: (
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #0f0f0f 0%, #1e3a5f 100%)',
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: 40 }}>
+        {/* Ikona tarczy z sylwetką auta */}
+        <div
+          style={{
+            width: 180,
+            height: 200,
+            background: 'linear-gradient(135deg, #2196F3 0%, #1976D2 100%)',
+            clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'relative',
+          }}
+        >
+          <div style={{ fontSize: 80, color: 'white' }}>🚗</div>
+        </div>
+        {/* Nazwa */}
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div
+            style={{
+              fontSize: 90,
+              fontWeight: 900,
+              color: 'white',
+              letterSpacing: 10,
+            }}
+          >
+            GVMS
+          </div>
+          <div style={{ fontSize: 18, color: '#64B5F6', letterSpacing: 3 }}>
+            DETAILING STUDIO
+          </div>
+        </div>
+      </div>
+    </div>
+  ),
+
+  // Koncepcja 3: CERAMIC COAT - Molekuły ceramiki
+  ceramic: (
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: '#000',
+      }}
+    >
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
+        {/* Hexagony w tle (struktura ceramiki) */}
+        <div style={{ position: 'absolute', opacity: 0.1, fontSize: 300, color: '#2196F3' }}>
+          ⬡
+        </div>
+        {/* Logo */}
+        <div
+          style={{
+            fontSize: 110,
+            fontWeight: 900,
+            letterSpacing: 12,
+            background: 'linear-gradient(135deg, #00e5ff 0%, #2196F3 50%, #00e5ff 100%)',
+            backgroundClip: 'text',
+            color: 'transparent',
+            position: 'relative',
+            zIndex: 1,
+          }}
+        >
+          GVMS
+        </div>
+        {/* Tagline */}
+        <div
+          style={{
+            fontSize: 16,
+            letterSpacing: 6,
+            color: '#00e5ff',
+            marginTop: 15,
+            fontWeight: 300,
+          }}
+        >
+          CERAMIC COATING EXPERTS
+        </div>
+        {/* Kropki reprezentujące powłokę */}
+        <div style={{ display: 'flex', gap: 8, marginTop: 20 }}>
+          {[1, 2, 3, 4, 5].map((i) => (
+            <div
+              key={i}
+              style={{
+                width: 12,
+                height: 12,
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #00e5ff, #2196F3)',
+              }}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  ),
+
+  // Koncepcja 4: REFLECTION - Odbicie luksusu
+  reflection: (
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%)',
+      }}
+    >
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {/* Logo z efektem odbicia */}
+        <div
+          style={{
+            fontSize: 130,
+            fontWeight: 900,
+            letterSpacing: 20,
+            background: 'linear-gradient(180deg, #FFD700 0%, #FFA500 50%, #FFD700 100%)',
+            backgroundClip: 'text',
+            color: 'transparent',
+          }}
+        >
+          GVMS
+        </div>
+        {/* "Odbicie" */}
+        <div
+          style={{
+            fontSize: 130,
+            fontWeight: 900,
+            letterSpacing: 20,
+            background: 'linear-gradient(180deg, transparent 0%, #FFD700 50%, transparent 100%)',
+            backgroundClip: 'text',
+            color: 'transparent',
+            opacity: 0.3,
+            transform: 'scaleY(-1)',
+            marginTop: -80,
+          }}
+        >
+          GVMS
+        </div>
+        {/* Tagline */}
+        <div
+          style={{
+            fontSize: 18,
+            letterSpacing: 8,
+            color: '#FFD700',
+            marginTop: 40,
+          }}
+        >
+          AUTOMOTIVE PERFECTION
+        </div>
+      </div>
+    </div>
+  ),
+
+  // Koncepcja 5: MODERN TECH - Nowoczesna technologia
+  tech: (
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: 50 }}>
+        {/* Geometryczny symbol */}
+        <div
+          style={{
+            width: 150,
+            height: 150,
+            border: '4px solid white',
+            borderRadius: '30px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'rgba(255,255,255,0.1)',
+            transform: 'rotate(45deg)',
+          }}
+        >
+          <div
+            style={{
+              fontSize: 60,
+              fontWeight: 900,
+              color: 'white',
+              transform: 'rotate(-45deg)',
+            }}
+          >
+            G
+          </div>
+        </div>
+        {/* Tekst */}
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div style={{ fontSize: 100, fontWeight: 900, color: 'white', letterSpacing: 8 }}>
+            GVMS
+          </div>
+          <div
+            style={{
+              fontSize: 20,
+              color: 'rgba(255,255,255,0.9)',
+              letterSpacing: 4,
+              marginTop: 10,
+            }}
+          >
+            PAINT PROTECTION
+          </div>
+        </div>
+      </div>
+    </div>
+  ),
+};
+
+export async function GET(
+  request: Request,
+  { params }: { params: { variant: string } }
+) {
+  const variant = params.variant as keyof typeof logos;
+  const logo = logos[variant] || logos.minimal;
+
+  return new ImageResponse(logo, {
+    width: 1200,
+    height: 630,
+  });
+}
+Strona prezentacji logo
+src/app/page.tsx
+
+
 export default function Home() {
   const variants = [
     { id: 'minimal', name: 'Minimal Shine', desc: 'Elegancja z metalicznym połyskiem' },
