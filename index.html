@@ -1,169 +1,88 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mateusz Szyperek CV</title>
-    <link rel="stylesheet" href="slider.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <aside>
-        <img class="imgprofile" src="PROFILE.png" width="402px">
-        <ul class="main-list">
-            <li><span class="list-color">NAME</span>
-                <li>MATEUSZ SZYPEREK</li>
-            </li><br>
-            <li><span class="list-color">CONTACT</span> 
-                    <br>
-                        +354 784 9638
-                    <br>
-                        MATEUSZYPEREK@GMAIL.COM
-            </li><br>
-            <li><span class="list-color">ADRESS</span> <br>
-                Reykjavik, 113 Grafarholt
-            </li><br>
-            <li><span class="list-color">LANGUAGE</span> <br>
-                ENGLISH <br><img src="disc.png"> <img src="disc.png"> <img src="disc.png"> <img src="disc.png"> <img src="disc.png"> <br>
-                POLISH <br> <img src="disc.png"> <img src="disc.png"> <img src="disc.png"> <img src="disc.png"> <img src="disc.png"> <br>
-                ICELANDIC <br> <img src="disc.png"> <img src="disc.png"> <img src="disc.png"> <img src="disc2.png"> <img src="disc2.png">
-            </li><br>
-            <li><span class="list-color">SOFT SKILLS</span><br>
-                <img src="disc.png" width="12px">  Friendliness <br>
-                <img src="disc.png" width="12px">  Attention to detail <br>
-                <img src="disc.png" width="12px">  Communication skills <br>
-                <img src="disc.png" width="12px">  Time management <br>
-                <img src="disc.png" width="12px">  Self-motivation <br>
-                <img src="disc.png" width="12px">  Punctuality <br>
-                <img src="disc.png" width="12px">  Honesty <br>
-            </li> <br>
-            <li><span class="list-color">HARD SKILLS</span><br>
-                <img src="disc.png" width="12px">  Driving License B <br>
-                <img src="disc.png" width="12px">  Application of ceramic coatings <br>
-                <img src="disc.png" width="12px">  Interior and exterior detailing <br>
-                <img src="disc.png" width="12px">  Maintenance of leather and plastics <br>
-                <img src="disc.png" width="12px">  Upholstery and seat washing <br>
-                <img src="disc.png" width="12px">  Preparing the car for paint<br>correction and polishing <br>
-                <img src="disc.png" width="12px">  Installation of protection<br>films on small parts <br>
-            </li>  
-        </ul>
-    </aside>
-    <main>
-    <div id="CONTAINER">
-        <div class="description">
-            <div class="desk">DESCRIPTION</div>
-            <div class="con"> <br>Passionate car detailing specialist with a strong technical foundation developed through dedicated practice and professional training at a leading Polish detailing academy. Having resided in Iceland for two years, I am committed to building my career in the automotive aesthetics industry while continuing my Icelandic language education. I bring meticulous attention to detail, extensive knowledge of detailing products and techniques, and a drive for continual improvement. With a valid B driver's license and excellent driving skills, I am eager to transform my detailing passion into a professional career where I can enhance vehicle appearance while delivering exceptional service.
-                <br><br></div>
-        </div>
+export default function Home() {
+  const variants = [
+    { id: 'minimal', name: 'Minimal Shine', desc: 'Elegancja z metalicznym połyskiem' },
+    { id: 'shield', name: 'Shield Protection', desc: 'Tarcza ochronna z sylwetką auta' },
+    { id: 'ceramic', name: 'Ceramic Coat', desc: 'Struktura cząsteczek ceramiki' },
+    { id: 'reflection', name: 'Reflection', desc: 'Luksusowe odbicie w lakierze' },
+    { id: 'tech', name: 'Modern Tech', desc: 'Nowoczesna geometria' },
+  ];
 
-        <div class="work">
-            <div class="desk">WORK</div>
-            <div class="con">
-                <div class="con1">
-                    <div class="con2">
-                <b>Car Rental Employee</b> <br>
-                MobiCars Poland | 2021-2022<br>
-                <img src="disc.png"> Car washing and preparation for rentals<br>
-                <img src="disc.png"> Repair of minor defects<br>
-                <img src="disc.png"> Reparking cars and delivering to the customer<br>
-                <img src="disc.png"> Receiving and releasing cars</div>
-                <div class="con2">
-                    <b>Private driver</b><br>
-                    Private Person | 2023 January - May<br>
-                    <img src="disc.png"> Driving and service trips<br>
-                    <img src="disc.png"> Handling official matters<br>
-                    <img src="disc.png"> Transportation of people
+  return (
+    <div className="min-h-screen bg-gray-900 py-12 px-4">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-5xl font-bold text-white text-center mb-4">
+          GVMS Detailing - Propozycje Logo
+        </h1>
+        <p className="text-gray-400 text-center mb-12 text-lg">
+          5 niepowtarzalnych koncepcji dla Twojej marki premium
+        </p>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {variants.map((variant, index) => (
+            <div key={variant.id} className="bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
+              <div className="relative">
+                <img
+                  src={`/api/logo/${variant.id}`}
+                  alt={variant.name}
+                  className="w-full h-auto"
+                />
+                <div className="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                  #{index + 1}
                 </div>
-                <div class="con2">
-                    <b>Painter</b><br>
-                    GSG ehf | 2023-2025<br>
-                    <img src="disc.png"> Reading technical drawings<br>
-                    <img src="disc.png"> Meetings with clients and parking design<br>
-                    <img src="disc.png"> Surface preparation and painting
-                </div><br>
-
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  {variant.name}
+                </h3>
+                <p className="text-gray-400">{variant.desc}</p>
+              </div>
             </div>
+          ))}
         </div>
 
-        <div class="my-projects">
-            <div class="desk">MY RECENT PROJECTS</div>
-            <div class="con">        
-                <div class="slider-container">
-                <div class="slider">
-                    <div class="slide active">
-                        <img src="540i1.png" alt="Slajd 1">
-                        <div class="slide-content">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="540i2.png" alt="Slajd 2">
-                        <div class="slide-content">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="540i3.png" alt="Slajd 3">
-                        <div class="slide-content">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="540i4.png" alt="Slajd 4">
-                        <div class="slide-content">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="540i5.png" alt="Slajd 5">
-                        <div class="slide-content">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="540i6.png" alt="Slajd 6">
-                        <div class="slide-content">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="e631.png" alt="Slajd 7">
-                        <div class="slide-content">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="e632.png" alt="Slajd 8">
-                        <div class="slide-content">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="e633.png" alt="Slajd 9">
-                        <div class="slide-content">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="m3.png" alt="Slajd 10">
-                        <div class="slide-content">
-                        </div>
-                    </div>
+        {/* Bonus: Paleta kolorów */}
+        <div className="mt-16 bg-gray-800 rounded-lg p-8">
+          <h2 className="text-3xl font-bold text-white mb-6">
+            💡 Rekomendacje brandingowe
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6 text-white">
+            <div>
+              <h3 className="font-bold text-xl mb-3">🎨 Kolory marki</h3>
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded bg-gradient-to-r from-blue-500 to-blue-700"></div>
+                  <span className="text-sm">Niebieski - zaufanie, technologia</span>
                 </div>
-        
-                <div class="slider-controls">
-                    <button class="prev-btn">&lt;</button>
-                    <div class="dots-container"></div>
-                    <button class="next-btn">&gt;</button>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded bg-gradient-to-r from-gray-700 to-gray-900"></div>
+                  <span className="text-sm">Czarny - elegancja, premium</span>
                 </div>
-                </div></div>
-        </div>
-        <div class="education">
-            <div class="desk">CERTIFICATIONS</div>
-            <div class="con">
-                <br><br>
-                <img src="certification.png">
-                <br><br><br>
-
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded bg-gradient-to-r from-yellow-400 to-yellow-600"></div>
+                  <span className="text-sm">Złoty - luksus</span>
+                </div>
+              </div>
             </div>
+            <div>
+              <h3 className="font-bold text-xl mb-3">✍️ Czcionki</h3>
+              <p className="text-gray-400 text-sm">
+                • <strong>Logo:</strong> Bold, sans-serif (Montserrat, Bebas Neue)<br/>
+                • <strong>Tagline:</strong> Light, rozstrzelone litery<br/>
+                • <strong>Tekst:</strong> Czytelny, nowoczesny
+              </p>
+            </div>
+            <div>
+              <h3 className="font-bold text-xl mb-3">🎯 Zastosowanie</h3>
+              <p className="text-gray-400 text-sm">
+                • Wizytówki premium<br/>
+                • Oklejenie samochodu serwisowego<br/>
+                • Media społecznościowe<br/>
+                • Strona internetowa
+              </p>
+            </div>
+          </div>
         </div>
-
-
+      </div>
     </div>
-    </main>
-    <script src="slider.js"></script>
-</body>
-</html>
+  );
+}
